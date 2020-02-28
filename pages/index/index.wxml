@@ -1,25 +1,59 @@
 <!--index.wxml-->
 <view class="container">
   <!-- 首页的搜索栏 -->
-  <navigator>
+  <navigator class="search">
     <view class="search_input">
       <icon type="search" size="20" />
       <text>搜索</text>
     </view>
   </navigator>
+
   <!-- 轮播图 -->
   <!-- indicator-dots：是否显示面板指示点
        indicator-color：知识点颜色
        indicator-active-color：选中的知识点的颜色
        circular：是否衔接滑动
    -->
-
   <swiper indicator-dots indicator-color="rgba(255, 255, 255, .3)" indicator-active-color="#fff" circular>
     <block wx:for="{{swiperList}}" wx:key="index">
       <swiper-item>
-      <!-- mode：图片裁剪、缩放的模式 -->
+        <!-- mode：图片裁剪、缩放的模式 -->
         <image src="{{item.image_src}}" mode="aspectFill"></image>
       </swiper-item>
     </block>
   </swiper>
+
+  <!-- 分类导航 -->
+  <view class="menus">
+    <block wx:for='{{cateList}}' wx:key='index'>
+      <navigator url="{{item.url}}" open-type="{{item.open_type}}">
+        <image src="{{item.image_src}}" mode="aspectFill"></image>
+      </navigator>
+    </block>
+  </view>
+
+  <!-- 楼层布局 -->
+  <view class="floor" wx:for="{{floordata}}" wx:key="index">
+    <!--楼层标题  -->
+    <view class="floor_title">
+      <image mode="aspectFill" src="{{item.floor_title.image_src}}" mode="aspectFill"></image>
+    </view>
+    <!-- 楼层内容 -->
+    <view class="floor_content">
+      <!-- 左边大图 -->
+      <view class="floor_content_left">
+        <image src="{{item.product_list[0].image_src}}" mode="aspectFill"></image>
+      </view>
+      <!-- 右边小图 -->
+      <view class="floor_content_right">
+        <image wx:for="{{item.product_list}}" wx:key="index" wx:if="{{index>0}}" src="{{item.image_src}}" mode="aspectFill"></image>
+      </view>
+    </view>
+  </view>
+
+  <!-- 回到顶部部分 -->
+  <view class="totop" bindtap="handleToTop" wx:if="{{isShowTop}}">
+    <view class="totop_icon"></view>
+    <text>顶部</text>
+  </view>
 </view>

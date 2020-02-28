@@ -1,5 +1,5 @@
 /* 搜索栏 */
-navigator{
+.search{
   padding: 20rpx;
   background-color: #eb4450;
 }
@@ -14,7 +14,7 @@ navigator{
   vertical-align: bottom;
 }
 .search_input text{
-  color: #c4c4c4;
+  color: #bbb;
   font-size: 14px;
 }
 /* 轮播图样式 */
@@ -24,4 +24,81 @@ swiper{
 swiper image{
   width: 750rpx;
   height: 340rpx;
+}
+
+/* 分类导航的样式 */
+.menus{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20rpx 0;
+}
+.menus image {
+  width: 128rpx;
+  height: 140rpx;
+}
+
+/* 楼层的样式 */
+.floor_title{
+  display: flex;
+  align-items: flex-end;
+  height: 90rpx;
+  padding-left: 10rpx;
+  background-color: #f4f4f4;
+}
+.floor_title image{
+  width: 100%;
+  height: 60rpx;
+}
+.floor_content{
+  display: flex;
+  justify-content: space-between;
+  padding: 20rpx 16rpx;
+}
+.floor_content_left image{
+  width: 232rpx;
+  height: 386rpx;
+  margin-right: 10rpx;
+}
+.floor_content_right{
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.floor_content_right image{
+  width: 232rpx;
+  height: 188rpx;
+}
+.floor:nth-child(2n-1) .floor_content_right image,
+.floor:last-child .floor_content_right image{
+  width: 193rpx;
+}
+.floor:nth-child(2n-1) .floor_content_right image:nth-child(3n+1),
+.floor:last-child .floor_content_right image:nth-child(3n+1){
+  width: 273rpx;
+}
+
+/* 回到顶部的样式 */
+.totop{
+  width: 90rpx;
+  height: 90rpx;
+  background-color: #fefefe;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: 14px;
+  color: #333;
+  position: fixed;
+  right: 20rpx;
+  bottom: 40rpx;
+}
+.totop_icon{
+  width: 10px;
+  height: 10px;
+  border-left: 1px solid #333;
+  border-top: 1px solid #333;
+  transform: rotate(45deg)
 }
