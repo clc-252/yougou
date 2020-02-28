@@ -1,0 +1,27 @@
+/* 搜索栏 */
+navigator{
+  padding: 20rpx;
+  background-color: #eb4450;
+}
+.search_input{
+  padding: 8rpx;
+  background-color: #fff;
+  text-align: center;
+  border-radius: 2px;
+}
+.search_input icon{
+  margin-right: 5rpx;
+  vertical-align: bottom;
+}
+.search_input text{
+  color: #c4c4c4;
+  font-size: 14px;
+}
+/* 轮播图样式 */
+swiper{
+  height: 340rpx;
+}
+swiper image{
+  width: 750rpx;
+  height: 340rpx;
+}

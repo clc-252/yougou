@@ -1,4 +1,25 @@
 <!--index.wxml-->
 <view class="container">
-首页
+  <!-- 首页的搜索栏 -->
+  <navigator>
+    <view class="search_input">
+      <icon type="search" size="20" />
+      <text>搜索</text>
+    </view>
+  </navigator>
+  <!-- 轮播图 -->
+  <!-- indicator-dots：是否显示面板指示点
+       indicator-color：知识点颜色
+       indicator-active-color：选中的知识点的颜色
+       circular：是否衔接滑动
+   -->
+
+  <swiper indicator-dots indicator-color="rgba(255, 255, 255, .3)" indicator-active-color="#fff" circular>
+    <block wx:for="{{swiperList}}" wx:key="index">
+      <swiper-item>
+      <!-- mode：图片裁剪、缩放的模式 -->
+        <image src="{{item.image_src}}" mode="aspectFill"></image>
+      </swiper-item>
+    </block>
+  </swiper>
 </view>
