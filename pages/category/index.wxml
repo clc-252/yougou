@@ -1,4 +1,23 @@
 <view class="container">
   <!-- 引入搜索栏组件 -->
   <Search/>
+  <!-- 分类内容 -->
+  <view class="content">
+    <!-- 左边的导航菜单 -->
+    <view class="menu_nav">
+      <view class="menu_item {{current===index?'active':''}}" wx:for="{{list}}" wx:key="index" bindtap="handleClick" data-index="{{index}}">{{item.cat_name}}</view>
+    </view>
+    <!-- 右边的内容 -->
+    <view class="menu_content">
+      <image src="../../images/category.png" mode="widthFix" class="top_img"></image>
+      <!-- 子分类 -->
+      <view class="cate_list" wx:for="{{list[current].children}}" wx:key="index">
+        <view class="cate_title">/<text>{{item.cat_name}}</text>/</view>
+        <view class="list_item" wx:for="{{item.children}}" wx:key="index">
+          <image src="{{item.cat_icon}}" mode="widthFix"></image>
+          <text>{{item.cat_name}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
 </view>

@@ -1,1 +1,84 @@
 /* pages/category/index.wxss */
+
+.content {
+  position: fixed;
+  top: 100rpx;
+  bottom: 0;
+  width: 750rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* 左边导航菜单的样式 */
+
+.menu_nav {
+  width: 198rpx;
+  margin-right: 10rpx;
+  text-align: center;
+  color: #333;
+  overflow: auto;
+}
+
+.menu_nav .menu_item {
+  position: relative;
+  padding: 20rpx 0;
+  background-color: #f4f4f4;
+  border-bottom: 1px solid #eee;
+}
+
+.menu_nav .active {
+  background-color: #fff;
+  color: #eb4450;
+}
+
+.menu_nav .active::before {
+  content: '';
+  width: 2px;
+  height: 22px;
+  background-color: #eb4450;
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* 右边内容的样式 */
+
+.menu_content {
+  flex: 1;
+  padding-top: 20rpx;
+  overflow: auto;
+  /* text-align: center; */
+  color: #333;
+}
+
+.menu_content .top_img {
+  width: 100%;
+}
+
+.cate_list {
+  margin-top: 50rpx;
+}
+.cate_title{
+  text-align: center;
+  margin-bottom: 20rpx;
+  color: #999;
+}
+.cate_title text{
+  color: #333;
+  margin: 0 30rpx;
+}
+
+.cate_list .list_item {
+  display: inline-block;
+  width: 31%;
+  margin-right: 13rpx;
+  margin-bottom: 20rpx;
+  text-align: center;
+  font-size: 14px;
+}
+
+.cate_list .list_item image {
+  width: 90%;
+}
