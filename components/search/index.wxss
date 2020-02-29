@@ -1,0 +1,23 @@
+/* 搜索栏 */
+
+.search {
+  padding: 20rpx;
+  background-color: #eb4450;
+}
+
+.search_input {
+  padding: 8rpx;
+  background-color: #fff;
+  text-align: center;
+  border-radius: 2px;
+}
+
+.search_input icon {
+  margin-right: 5rpx;
+  vertical-align: bottom;
+}
+
+.search_input text {
+  color: #bbb;
+  font-size: 14px;
+}
