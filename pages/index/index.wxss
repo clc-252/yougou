@@ -71,11 +71,11 @@ swiper image{
   height: 188rpx;
 }
 .floor:nth-child(2n-1) .floor_content_right image,
-.floor:last-child .floor_content_right image{
+.floor:nth-child(3n) .floor_content_right image{
   width: 193rpx;
 }
 .floor:nth-child(2n-1) .floor_content_right image:nth-child(3n+1),
-.floor:last-child .floor_content_right image:nth-child(3n+1){
+.floor:nth-child(3n) .floor_content_right image:nth-child(3n+1){
   width: 273rpx;
 }
 
