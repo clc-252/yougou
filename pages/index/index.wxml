@@ -8,8 +8,9 @@
        indicator-color：知识点颜色
        indicator-active-color：选中的知识点的颜色
        circular：是否衔接滑动
+       autoplay：是否自动播放
    -->
-  <swiper indicator-dots indicator-color="rgba(255, 255, 255, .3)" indicator-active-color="#fff" circular>
+  <swiper indicator-dots indicator-color="rgba(255, 255, 255, .3)" indicator-active-color="#fff" circular autoplay>
     <block wx:for="{{swiperList}}" wx:key="index">
       <swiper-item>
         <!-- mode：图片裁剪、缩放的模式 -->
