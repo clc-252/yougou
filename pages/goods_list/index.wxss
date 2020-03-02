@@ -71,3 +71,12 @@
 .icon-paixu{
   font-size: 18px;
 }
+
+/* 提示 */
+.tips{
+  padding: 20rpx;
+  text-align: center;
+  background-color: #f7f7f7;
+  font-size: 14px;
+  color: #ddd;
+}
