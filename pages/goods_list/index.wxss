@@ -1,0 +1,74 @@
+/* pages/search/index.wxss */
+/* 搜索栏 */
+.search {
+  padding: 20rpx;
+  background-color: #eee;
+}
+
+.search_input {
+  padding: 8rpx;
+  padding-left: 20rpx;
+  background-color: #fff;
+  border-radius: 2px;
+}
+
+.search_input icon {
+  margin-right: 5rpx;
+  vertical-align: bottom;
+}
+
+.search_input text {
+  color: #bbb;
+  font-size: 14px;
+}
+
+/* tab栏 */
+.tab{
+  display: flex;
+  justify-content: space-around;
+  padding: 30rpx 15rpx;
+  border-bottom: 1px solid #ddd;
+}
+.active{
+  color: #eb4450;
+}
+
+/* 商品列表 */
+.list_item{
+  display: flex;
+  margin: 0 20rpx;
+  padding: 30rpx 0;
+  border-bottom: 1px solid #ddd;
+}
+.list_item image{
+  width: 200rpx;
+  height: 200rpx;
+  flex-shrink: 0;
+  margin-right: 20rpx;
+}
+.list_item .list_item_right{
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-right: 20rpx;
+}
+.list_item .goods_title{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient: vertical;
+  font-size: 14px;
+}
+.list_item .price{
+  color: #eb4450;
+  font-size: 20px;
+}
+.list_item .price text {
+  font-size: 14px;
+}
+.icon-paixu{
+  font-size: 18px;
+  vertical-align: bottom;
+}
