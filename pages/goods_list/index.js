@@ -17,7 +17,9 @@ Page({
     // 显示哪个提示文字
     hasMore: true,
     // 当前页面
-    pageNum: 1
+    pageNum: 1,
+    // 是否正在加载中
+    loading:true
   },
 
   /**
@@ -47,6 +49,10 @@ Page({
 
   // 将请求商品列表封装起来
   getGoods() {
+    // 如果没有数据了就不要发送请求
+    if(this.data.hasMore===false){
+      return;
+    }
     request({
       url: '/goods/search',
       data: {
@@ -64,7 +70,9 @@ Page({
       // 把数据存到goodsList中
       this.setData({
         // 合并原来请求的数据和新请求的数据
-        goodsList: [...this.data.goodsList,...goodsList]
+        goodsList: [...this.data.goodsList,...goodsList],
+        // 当前此次请求完毕
+        loading:false
       })
 
       // 判断是否是最后一页数据
@@ -80,10 +88,16 @@ Page({
  * 页面上拉触底事件的处理函数
  */
   onReachBottom: function () {
-    this.setData({
-      pageNum: this.data.pageNum + 1
-    })
-    // 请求商品列表的数据
-    this.getGoods();
-  }
+    // 需要等到上一次请求完成之后再执行下一页的数据
+    if (this.data.loading===false){
+      this.setData({
+        // 每次发起请求前重新设置loading的值为true，代表正在加载
+        loading:true,
+        pageNum: this.data.pageNum + 1
+      })
+      // 请求商品列表的数据
+      this.getGoods();
+    }
+    }
+
 })
