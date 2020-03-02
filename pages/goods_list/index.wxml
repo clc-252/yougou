@@ -3,7 +3,7 @@
   <navigator class="search">
     <view class="search_input">
       <icon type="search" size="20" />
-      <text>小米</text>
+      <text>{{keyword}}</text>
     </view>
   </navigator>
   <!-- tab栏 -->
@@ -13,16 +13,18 @@
   </view>
   <!-- 商品列表 -->
   <view class="list">
+  <block wx:for="{{goodsList}}" wx:key="index">
     <navigator class="list_item">
       <!-- 图片 -->
-      <image src="https://img13.360buyimg.com/jdcms/s150x150_jfs/t1/86764/18/13703/230347/5e5bdd24Ecaa9f5d1/53181706f3fa91e1.jpg.webp"></image>
+      <image src="{{item.goods_small_logo}}"></image>
       <!-- 右侧商品信息 -->
       <view class="list_item_right">
-        <view class="goods_title">FILA 斐乐官方 SPAGHETTI LOW 篮球鞋男子秋季运动鞋休闲鞋潮流经典BB鞋男鞋 米色-AG 41</view>
+        <view class="goods_title">{{item.goods_name}}</view>
         <view class="price">
-          <text>￥</text>69.00
+          <text>￥</text>{{item.goods_price}}
         </view>
       </view>
     </navigator>
+  </block>
   </view>
 </view>

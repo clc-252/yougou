@@ -13,10 +13,10 @@
       <!-- 子分类 -->
       <view class="cate_list" wx:for="{{list[current].children}}" wx:key="index">
         <view class="cate_title">/<text>{{item.cat_name}}</text>/</view>
-        <view class="list_item" wx:for="{{item.children}}" wx:key="index">
+        <navigator url="/pages/goods_list/index?keyword={{item.cat_name}}" class="list_item" wx:for="{{item.children}}" wx:key="index">
           <image src="{{item.cat_icon}}" mode="widthFix"></image>
           <text>{{item.cat_name}}</text>
-        </view>
+        </navigator>
       </view>
     </view>
   </view>
