@@ -21,3 +21,11 @@
   color: #bbb;
   font-size: 14px;
 }
+
+.left {
+  text-align: left;
+}
+
+.right {
+  text-align: right;
+}

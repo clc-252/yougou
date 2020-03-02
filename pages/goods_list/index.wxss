@@ -1,26 +1,12 @@
 /* pages/search/index.wxss */
 /* 搜索栏 */
 .search {
-  padding: 20rpx;
-  background-color: #eee;
+  background-color: #eee!important;
 }
-
-.search_input {
-  padding: 8rpx;
-  padding-left: 20rpx;
-  background-color: #fff;
-  border-radius: 2px;
-}
-
-.search_input icon {
-  margin-right: 5rpx;
-  vertical-align: bottom;
-}
-
-.search_input text {
-  color: #bbb;
-  font-size: 14px;
-}
+/* .search_input{
+  padding-left: 20rpx!important;
+  text-align: left!important;
+} */
 
 /* tab栏 */
 .tab{

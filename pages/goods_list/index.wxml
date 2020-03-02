@@ -1,11 +1,18 @@
 <view class="container">
-  <!-- 搜索组件 -->
-  <navigator class="search">
+  <!-- 搜索栏 -->
+  <!-- <navigator class="search">
     <view class="search_input">
       <icon type="search" size="20" />
       <text>{{keyword}}</text>
     </view>
-  </navigator>
+  </navigator> -->
+
+  <!-- 引入搜索栏组件 -->
+  <!-- 修改样式方法一 -->
+  <!-- <Search keyword="{{keyword}}" bgc="search" align="search_input"/> -->
+  <!-- 方法二 -->
+  <Search keyword="{{keyword}}" bgc="search" align="left"/>
+
   <!-- tab栏 -->
   <view class="tab">
     <view wx:for="{{['综合','销量','价格']}}" wx:key="index" bindtap="handleClick" data-index="{{index}}" class="{{current===index?'active':''}}">{{item}}

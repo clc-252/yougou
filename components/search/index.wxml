@@ -1,7 +1,7 @@
 <!-- 搜索栏 -->
-<navigator class="search">
-  <view class="search_input">
+<navigator class="search bgc">
+  <view class="search_input {{align}}">
     <icon type="search" size="20" />
-    <text>搜索</text>
+    <text>{{keyword}}</text>
   </view>
 </navigator>
