@@ -1,0 +1,25 @@
+<view class="container">
+  <!-- 搜索栏 -->
+  <view class="search-wrapper">
+    <view class="search">
+      <icon type="search" size="20" />
+      <input placeholder="请输入你想要的商品"></input>
+    </view>
+    <view class="cancel-btn">取消</view>
+  </view>
+
+  <!-- 历史搜索 -->
+  <view class="history">
+    <view class="history-title">
+      <view class="title">历史搜索</view>
+      <icon type="clear" size="20"></icon>
+    </view>
+    <view class="history-list">
+      <view class="history-item">小米</view>
+      <view class="history-item">小米12</view>
+      <view class="history-item">小米123</view>
+      <view class="history-item">小米12</view>
+      <view class="history-item">小米12345</view>
+    </view>
+  </view>
+</view>

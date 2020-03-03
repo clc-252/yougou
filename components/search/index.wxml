@@ -1,5 +1,5 @@
 <!-- 搜索栏 -->
-<navigator class="search bgc">
+<navigator class="search bgc" url="/pages/search/index">
   <view class="search_input {{align}}">
     <icon type="search" size="20" />
     <text>{{keyword}}</text>
