@@ -65,7 +65,7 @@ Page({
           recommend: message,
           loading:false  // 完成之后离开关灯
         })
-        
+
         // 判断上一次输入框的值是否当前输入框的值相同，如果不同，就要再次发起请求
         if (this.data.lastValue !== this.data.inputValue) {
           this.getRecommend();
@@ -79,6 +79,12 @@ Page({
     this.setData({
       inputValue:'',
       recommend: []
+    })
+  },
+  // 点击完成(回车)按钮时触发
+  handleEnter(){
+    wx.redirectTo({
+      url:'/pages/goods_list/index?keyword='+this.data.inputValue
     })
   }
 })
