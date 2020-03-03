@@ -11,7 +11,11 @@ Page({
     // 输入框的值
     inputValue:'',
     // 搜索关键列表
-    recommend:[]
+    recommend:[],
+    // 等待上一次请求返回再修改
+    loading:false,
+    // 记录文本框上一次的值
+    lastValue:''
   },
 
   /**
@@ -38,18 +42,37 @@ Page({
     };
 
     // 请求输入建议列表
-    request({
-      url:'/goods/qsearch',
-      data:{
-        query:value
-      }
-    }).then(res=>{
-      const {message}=res.data;
-      // 保存到搜索建议的数组
+   this.getRecommend();
+  },
+  // 请求输入建议列表
+  getRecommend(){
+    // 保证一开始灯是关着的
+    if(this.data.loading===false){
+      // 进门之后开灯
       this.setData({
-        recommend:message
+        loading:true,
+        lastValue:this.data.inputValue
       })
-    })
+      request({
+        url: '/goods/qsearch',
+        data: {
+          query: this.data.inputValue
+        }
+      }).then(res => {
+        const { message } = res.data;
+        // 保存到搜索建议的数组
+        this.setData({
+          recommend: message,
+          loading:false  // 完成之后离开关灯
+        })
+        
+        // 判断上一次输入框的值是否当前输入框的值相同，如果不同，就要再次发起请求
+        if (this.data.lastValue !== this.data.inputValue) {
+          this.getRecommend();
+        }
+      })
+    }
+
   },
   // 点击取消按钮时触发
   handleCancel(){
