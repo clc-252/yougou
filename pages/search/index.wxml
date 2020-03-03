@@ -5,7 +5,7 @@
       <icon type="search" size="20" />
       <!-- bindinput：监听用户输入 -->
       <!-- bindconfirm：点击完成(回车)按钮时触发 -->
-      <input placeholder="请输入你想要的商品" value="{{inputValue}}" bindinput="handleInput" bindconfirm="handleEnter"></input>
+      <input placeholder="请输入你想要的商品" value="{{inputValue}}" bindinput="handleInput" bindconfirm="handleEnter" bindblur="handleBlur"></input>
     </view>
     <view class="cancel-btn" wx:if="{{inputValue}}" bindtap="handleCancel">取消</view>
 
@@ -19,10 +19,10 @@
   <view class="history">
     <view class="history-title">
       <view class="title">历史搜索</view>
-      <icon type="clear" size="20"></icon>
+      <icon type="clear" size="20" bindtap="handleClear"></icon>
     </view>
     <view class="history-list">
-      <view class="history-item" wx:for="{{history}}" wx:key="index">{{item}}</view>
+      <navigator url="/pages/goods_list/index?keyword={{item}}" class="history-item" wx:for="{{history}}" wx:key="index">{{item}}</navigator>
     </view>
   </view>
 </view>

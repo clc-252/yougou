@@ -93,6 +93,13 @@ Page({
     })
   },
 
+  // 输入框失焦时触发
+  handleBlur(){
+    this.setData({
+      recommend: []
+    })
+  },
+
   // 点击完成(回车)按钮时触发
   handleEnter() {
     // 在存储之前先把本地的数据读取出来
@@ -112,5 +119,16 @@ Page({
     wx.redirectTo({
       url: '/pages/goods_list/index?keyword=' + this.data.inputValue
     })
+  },
+
+  // 点击X时触发
+  handleClear(){
+    // 清空data中的数据
+    this.setData({
+      history: []
+    })
+
+    // 清空本地数据
+    wx.setStorageSync("history", [])
   }
 })
