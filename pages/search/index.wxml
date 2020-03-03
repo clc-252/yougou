@@ -22,11 +22,7 @@
       <icon type="clear" size="20"></icon>
     </view>
     <view class="history-list">
-      <view class="history-item">小米</view>
-      <view class="history-item">小米12</view>
-      <view class="history-item">小米123</view>
-      <view class="history-item">小米12</view>
-      <view class="history-item">小米12345</view>
+      <view class="history-item" wx:for="{{history}}" wx:key="index">{{item}}</view>
     </view>
   </view>
 </view>

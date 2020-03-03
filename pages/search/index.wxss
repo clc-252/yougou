@@ -55,6 +55,7 @@
 /* 历史搜索记录 */
 .history{
   padding: 0 30rpx;
+  font-size: 14px;
 }
 .history-title{
   display: flex;
