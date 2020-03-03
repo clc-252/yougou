@@ -9,6 +9,7 @@
 .search{
   flex: 1;
   margin-right: 20rpx;
+  padding: 10rpx 0;
   padding-left: 20rpx;
   display: flex;
   align-items: center;
@@ -21,7 +22,7 @@
 }
 .cancel-btn{
   width: 158rpx;
-  padding: 10rpx 0;
+  padding: 9rpx 0;
   border: 1px solid #bfbfbf;
   border-radius: 5px;
   text-align: center;
