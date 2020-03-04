@@ -123,3 +123,17 @@
   background-color: #eb4450;
 }
 
+/* 联系客服 */
+.contact{
+  position: absolute;
+  width: 20%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  overflow: hidden;
+}
+.contact button {
+  height: 100%;
+  background-color: transparent;
+}
+
