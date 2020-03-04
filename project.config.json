@@ -50,8 +50,8 @@
 			"list": [
 				{
 					"id": 0,
-					"name": "pages/search/index",
-					"pathName": "pages/search/index",
+					"name": "pages/goods_detail/index",
+					"pathName": "pages/goods_detail/index",
 					"query": "keyword=曲面电视",
 					"scene": null
 				}

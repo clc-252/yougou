@@ -1,0 +1,43 @@
+<view class="container">
+  <!-- 轮播图 -->
+  <swiper class="swiper" indicator-dots autoplay indicator-color="rgba(255, 255, 255, .3)" indicator-active-color="#fff">
+    <block wx:for="{{banner}}" wx:key="index">
+      <swiper-item>
+        <image src="{{item}}" mode="aspectfill"></image>
+      </swiper-item>
+    </block>
+  </swiper>
+
+  <!-- 商品信息 -->
+  <view class="info_wrapper">
+    <!-- 价格 -->
+    <view class="price">￥279</view>
+    <!-- 商品标题 -->
+    <view class="goods_info">
+      <view class="goods_title">FILA 斐乐男鞋 CAGE 篮球鞋高帮情侣同款2019秋季新款多彩运动鞋休</view>
+      <view class="goods_star">
+        <view class="iconfont icon-shoucang"></view>
+        <view class="star_text">收藏</view>
+      </view>
+    </view>
+    <!-- 快递 -->
+    <view class="express">快递：免运费</view>
+  </view>
+
+  <!-- 页脚的按钮 -->
+  <view class="btns">
+    <!-- 左边的按钮 -->
+    <view class="btn-left">
+      <view class="iconfont icon-kefu"></view>
+      <text>联系客服</text>
+    </view>
+    <view class="btn-left">
+      <view class="iconfont icon-gouwuche"></view>
+      <text>购物车</text>
+    </view>
+
+    <!-- 右边的按钮 -->
+    <view class="btn-right cart">加入购物车</view>
+    <view class="btn-right buy">立即购买</view>
+  </view>
+</view>
