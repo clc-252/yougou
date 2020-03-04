@@ -22,7 +22,7 @@
   <!-- 商品列表 -->
   <view class="list">
     <block wx:for="{{goodsList}}" wx:key="index">
-      <navigator class="list_item">
+      <navigator url="/pages/goods_detail/index?id={{item.goods_id}}" class="list_item">
         <!-- 图片 -->
         <image src="{{item.goods_small_logo}}"></image>
         <!-- 右侧商品信息 -->

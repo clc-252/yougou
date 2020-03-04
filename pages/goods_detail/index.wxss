@@ -55,13 +55,46 @@
 /* 快递 */
 .express{
   margin-top: 20rpx;
+  padding-bottom: 20rpx;
   color: #999;
   font-size: 14px;
 }
 
+/* 商品详细信息的tab栏 */
+.tab{
+  position: sticky;
+  top: 0;
+  border-top: 20rpx solid #f4f4f4;
+  border-bottom: 1px solid #f4f4f4;
+  display: flex;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 14px;
+  background-color: #fff;
+}
+.tab-item{
+  width: 50%;
+  text-align: center;
+}
+.active{
+  color: #e93b3d;
+}
+
+/* 商品规格 */
+.attrs{
+  padding: 20rpx;
+  font-size: 14px;
+}
+.attrs-item{
+  line-height: 2;
+}
+.attrs-item text{
+  margin-right: 20rpx;
+}
+
 /* 页脚的按钮 */
 .btns{
-  position: fixed;
+  position: sticky;
   bottom: 0;
   left: 0;
   right: 0;
@@ -70,6 +103,7 @@
   height: 98rpx;
   text-align: center;
   border-top: 1px solid #ddd;
+  background-color: #fff;
 }
 .btn-left{
   width: 20%;
@@ -88,3 +122,4 @@
 .buy{
   background-color: #eb4450;
 }
+

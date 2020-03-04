@@ -1,9 +1,9 @@
 <view class="container">
   <!-- 轮播图 -->
   <swiper class="swiper" indicator-dots autoplay indicator-color="rgba(255, 255, 255, .3)" indicator-active-color="#fff">
-    <block wx:for="{{banner}}" wx:key="index">
+    <block wx:for="{{detail.pics}}" wx:key="index">
       <swiper-item>
-        <image src="{{item}}" mode="aspectfill"></image>
+        <image src="{{item.pics_big}}" mode="aspectfill"></image>
       </swiper-item>
     </block>
   </swiper>
@@ -11,10 +11,10 @@
   <!-- 商品信息 -->
   <view class="info_wrapper">
     <!-- 价格 -->
-    <view class="price">￥279</view>
+    <view class="price">￥{{detail.goods_price}}</view>
     <!-- 商品标题 -->
     <view class="goods_info">
-      <view class="goods_title">FILA 斐乐男鞋 CAGE 篮球鞋高帮情侣同款2019秋季新款多彩运动鞋休</view>
+      <view class="goods_title">{{detail.goods_name}}</view>
       <view class="goods_star">
         <view class="iconfont icon-shoucang"></view>
         <view class="star_text">收藏</view>
@@ -22,6 +22,24 @@
     </view>
     <!-- 快递 -->
     <view class="express">快递：免运费</view>
+  </view>
+
+<!-- 商品详情的tab栏 -->
+  <view class="tab">
+    <view class="tab-item {{current===index?'active':''}}" wx:for="{{['详情','规格']}}" wx:key="index" bindtap="handleTabClick" data-index="{{index}}">
+      <icon class="iconfont icon-map" wx:if="{{current===index}}"></icon>
+      <text>{{item}}</text>
+    </view>
+  </view>
+  <!-- 商品的详细信息介绍 -->
+  <rich-text nodes="{{detail.goods_introduce}}" wx:if="{{current===0}}"></rich-text>
+  
+  <!-- 商品规格 -->
+  <view class="attrs" wx:if="{{current===1}}">
+    <view class="attr-item" wx:for="{{detail.attrs}}" wx:key="index">
+      <text>{{item.attr_name}}</text>
+      <text>{{item.attr_vals}}</text>
+    </view>
   </view>
 
   <!-- 页脚的按钮 -->
