@@ -53,7 +53,7 @@
       <view class="iconfont icon-kefu"></view>
       <text>联系客服</text>
     </view>
-    <view class="btn-left">
+    <view class="btn-left" bindtap="handleToCart">
       <view class="iconfont icon-gouwuche"></view>
       <text>购物车</text>
     </view>

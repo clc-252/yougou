@@ -100,20 +100,26 @@
   right: 0;
   display: flex;
   align-items: center;
-  height: 98rpx;
+  height: 100rpx;
   text-align: center;
-  border-top: 1px solid #ddd;
   background-color: #fff;
 }
 .btn-left{
   width: 20%;
+  height: 100%;
   color: #999;
   font-size: 12px;
+  border-top: 1px solid #ddd;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .btn-right{
   width: 30%;
+  height: 100%;
   color: #fff;
-  line-height: 98rpx;
+  line-height: 100rpx;
   font-size: 14px;
 }
 .cart{

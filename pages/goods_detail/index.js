@@ -57,5 +57,13 @@ Page({
       current: this.data.picUrls[index], // 当前显示图片的http链接
       urls: this.data.picUrls // 需要预览的图片http链接列表
     })
+  },
+
+  // 跳转到购物车页面
+  handleToCart(){
+    // wx.switchTab()：可跳转到tabtar页面
+    wx.switchTab({
+      url:'/pages/cart/index'
+    })
   }
 })
