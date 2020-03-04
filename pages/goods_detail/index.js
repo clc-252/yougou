@@ -10,7 +10,9 @@ Page({
   data: {
     detail:{},
     // 当前tab栏的索引
-    current:0
+    current:0,
+    // 图片预览
+    picUrls:[]
   },
 
   /**
@@ -27,8 +29,14 @@ Page({
     }).then(res=>{
       // console.log(res)
       const {message}=res.data
+      // 获取图片的连接
+      const picUrls=message.pics.map(v=>{
+        return v.pics_big
+      })
+      // 存储到data
       this.setData({
-        detail:message
+        detail:message,
+        picUrls
       })
     })
   },
@@ -37,6 +45,17 @@ Page({
     const {index}=e.currentTarget.dataset
     this.setData({
       current:index
+    })
+  },
+
+  // 图片预览
+  handlePreview(e){
+    // 获取当前图片的索引值
+    const { index } = e.currentTarget.dataset
+
+    wx.previewImage({
+      current: this.data.picUrls[index], // 当前显示图片的http链接
+      urls: this.data.picUrls // 需要预览的图片http链接列表
     })
   }
 })
