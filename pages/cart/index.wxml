@@ -1,17 +1,28 @@
 <view class="container">
   <!-- 收货地址 -->
-  <view class="address">
+  <view class="address" wx:if="{{address.userName}}">
     <!-- 收货人 -->
     <view class="user_address">
-      <view>收货人：苏</view>
-      <view class="user_tel">12345678901
+      <view>收货人：{{address.userName}}</view>
+      <view class="user_tel">{{address.telNumber}}
         <text>></text>
       </view>
     </view>
     <!-- 收货地址 -->
-    <view class="address_info">收货地址：广东省汕头市龙湖区</view>
+    <view class="address_info">收货地址：{{address.detail}}</view>
     <image mode="aspectFill" src="../../images/cart_border@2x.png"></image>
   </view>
+  <!-- 获取收货地址 -->
+  <view class="address" wx:if="{{!address.userName}}" bindtap="handleGetAddress">
+    <view class="user_address">
+      <view>获取收货地址</view>
+      <view class="user_tel">
+        <text>></text>
+      </view>
+    </view>
+    <image mode="aspectFill" src="../../images/cart_border@2x.png"></image>
+  </view>
+
   <!-- 店铺名 -->
   <view class="shop-name">
     <icon class="iconfont icon-dianpu"></icon>

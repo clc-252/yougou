@@ -1,4 +1,7 @@
 /* pages/cart/index.wxss */
+.address{
+  font-size: 14px;
+}
 .user_address{
   display: flex;
   justify-content: space-between;
