@@ -14,19 +14,16 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    // 将收货地址的数据从本地取出来
+    this.setData({
+      address: wx.getStorageSync('address') || {}
+    })
   },
 
   handleGetAddress() {
     // 获取收货地址
     wx.chooseAddress({
       success: (res) => {
-        // console.log(res.postalCode)
-        // console.log(res.provinceName)
-        // console.log(res.cityName)
-        // console.log(res.countyName)
-        // console.log(res.detailInfo)
-        // console.log(res.nationalCode)
         // 把地址信息存到address中
         this.setData({
           address: {
@@ -38,6 +35,9 @@ Page({
             detail: res.provinceName + res.cityName + res.countyName + res.detailInfo
           }
         })
+
+        // 将数据保存到本地
+        wx.setStorageSync('address', this.data.address)
       }
     })
   }
