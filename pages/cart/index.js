@@ -93,15 +93,21 @@ Page({
             this.setData({
               goods: this.data.goods
             })
+          } else if (res.cancel) {
+            this.data.goods[index].number=1
           }
         }
       })
+    }else{
+      // 修改data中goods的数据
+      this.setData({
+        goods: this.data.goods
+      })
     }
 
-    // 修改data中goods的数据
-    this.setData({
-      goods: this.data.goods
-    })
+    // 计算总价格
+    this.handleAllPrice();
+
   }
 
   // 方法一：
