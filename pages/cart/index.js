@@ -8,7 +8,9 @@ Page({
     // 收货信息
     address: {},
     // 购物车商品数据
-    goods:[]
+    goods:[],
+    // 总价格
+    allPrice:0
   },
 
   /**
@@ -25,6 +27,9 @@ Page({
     this.setData({
       goods: wx.getStorageSync('goods') || []
     })
+
+    // 计算总价格
+    this.handleAllPrice();
   },
 
   handleGetAddress() {
@@ -46,6 +51,20 @@ Page({
         // 将数据保存到本地
         wx.setStorageSync('address', this.data.address)
       }
+    })
+  },
+
+  // 计算总价格
+  handleAllPrice(){
+    let price=0;
+    // 循环goods数组，拿到每个商品的价格
+    this.data.goods.forEach(v=>{
+      price+=v.goods_price*v.number
+    })
+
+    // 修改总价格
+    this.setData({
+      allPrice:price
     })
   }
 })

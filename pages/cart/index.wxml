@@ -32,10 +32,14 @@
   <view class="goods-list">
     <view class="goods-item" wx:for="{{goods}}" wx:key="index">
       <icon type="success" color="#eb4450" size="18"></icon>
-      <image mode="aspectFill" src="{{item.goods_small_logo}}"></image>
+      <navigator url="/pages/goods_detail/index?id={{item.goods_id}}">
+        <image mode="aspectFill" src="{{item.goods_small_logo}}"></image>
+      </navigator>
       <!-- 商品详细信息 -->
       <view class="goods-item-info">
-        <view class="goods-title">{{item.goods_name}}</view>
+        <navigator url="/pages/goods_detail/index?id={{item.goods_id}}">
+          <view class="goods-title">{{item.goods_name}}</view>
+        </navigator>
         <view class="goods-other">
           <view class="goods-price">
             <text>￥</text>{{item.goods_price}}
@@ -59,7 +63,7 @@
     <view>
       <view class="sum">
         合计：
-        <text class="sum-price"><text>￥</text>1123.00</text>
+        <text class="sum-price"><text>￥</text>{{allPrice}}</text>
       </view>
       <view class="freight">包含运费</view>
     </view>
