@@ -59,7 +59,7 @@
     </view>
 
     <!-- 右边的按钮 -->
-    <view class="btn-right cart">加入购物车</view>
+    <view class="btn-right cart" bindtap="handleAddCart">加入购物车</view>
     <view class="btn-right buy">立即购买</view>
   </view>
 </view>

@@ -65,5 +65,38 @@ Page({
     wx.switchTab({
       url:'/pages/cart/index'
     })
+  },
+
+  // 添加到购物车
+  handleAddCart(){
+    // 判断本地中有没有数据，没有就等于一个空数据
+    const goods=wx.getStorageSync('goods')||[];
+
+    // 判断本地数据中有没有该商品，如果有数量+1
+    // some循环数组，return的结果“只要有一个是true就返回true，反之就返回false”
+    const exit=goods.some(v=>{
+      // 存在数量+1
+      if (v.goods_id === this.data.detail.goods_id){
+        v.number+=1;
+        // 提示用户
+        wx.showToast({
+          title: '数量+1',
+          icon:'success'
+        })
+      }
+      return v.goods_id === this.data.detail.goods_id
+    })
+
+    if(!exit){
+      // 把当前商品添加到本地中
+      goods.unshift({
+        goods_id:this.data.detail.goods_id,
+        goods_name: this.data.detail.goods_name,
+        goods_price: this.data.detail.goods_price,
+        goods_small_logo: this.data.detail.goods_small_logo,
+        number:1
+      })
+    }
+    wx.setStorageSync('goods', goods)
   }
 })
