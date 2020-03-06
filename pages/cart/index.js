@@ -66,6 +66,9 @@ Page({
     this.setData({
       allPrice: price
     })
+
+    // 修改本地数据中的goods
+    wx.setStorageSync('goods', this.data.goods)
   },
 
 
