@@ -6,8 +6,9 @@ Page({
    */
   data: {
     // 收货信息
-    address: {}
-
+    address: {},
+    // 购物车商品数据
+    goods:[]
   },
 
   /**
@@ -17,6 +18,12 @@ Page({
     // 将收货地址的数据从本地取出来
     this.setData({
       address: wx.getStorageSync('address') || {}
+    })
+  },
+  onShow(){
+    // 因为data和onload只会执行一次，所以要在onshow中执行：每一次打开页面的时候获取一次本地数据
+    this.setData({
+      goods: wx.getStorageSync('goods') || []
     })
   },
 

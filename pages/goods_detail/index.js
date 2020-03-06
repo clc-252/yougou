@@ -88,6 +88,11 @@ Page({
     })
 
     if(!exit){
+      // 提示用户
+      wx.showToast({
+        title: '已加入购物车',
+        icon: 'success'
+      })
       // 把当前商品添加到本地中
       goods.unshift({
         goods_id:this.data.detail.goods_id,

@@ -30,20 +30,20 @@
   </view>
   <!-- 商品列表 -->
   <view class="goods-list">
-    <view class="goods-item" wx:for="{{10}}">
+    <view class="goods-item" wx:for="{{goods}}" wx:key="index">
       <icon type="success" color="#eb4450" size="18"></icon>
-      <image mode="aspectFill" src="https://img10.360buyimg.com/jdcms/s150x150_jfs/t1/100084/15/9106/184444/5e0d7fedE0d59b6c3/f41760c20793a01c.jpg.webp"></image>
+      <image mode="aspectFill" src="{{item.goods_small_logo}}"></image>
       <!-- 商品详细信息 -->
       <view class="goods-item-info">
-        <view class="goods-title">【CF联名限量版 直降2800</view>
+        <view class="goods-title">{{item.goods_name}}</view>
         <view class="goods-other">
           <view class="goods-price">
-            <text>￥</text>132
+            <text>￥</text>{{item.goods_price}}
           </view>
           <!-- 商品数量 -->
           <view class="goods-num">
             <view class="reduce-btn">-</view>
-            <input value="1"></input>
+            <input value="{{item.number}}"></input>
             <view class="add-btn">+</view>
           </view>
         </view>
