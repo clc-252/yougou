@@ -47,7 +47,7 @@
           <!-- 商品数量 -->
           <view class="goods-num">
             <view class="reduce-btn" bindtap="handleGoodsNum" data-index="{{index}}" data-number="{{-1}}">-</view>
-            <input value="{{item.number}}"></input>
+            <input value="{{item.number}}" bindblur="handleBlur" data-index="{{index}}"></input>
             <view class="add-btn" bindtap="handleGoodsNum" data-index="{{index}}" data-number="{{1}}">+</view>
           </view>
         </view>

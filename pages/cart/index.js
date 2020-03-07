@@ -16,7 +16,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
+  onLoad: function (options) {
     // 将收货地址的数据从本地取出来
     this.setData({
       address: wx.getStorageSync('address') || {}
@@ -97,11 +97,11 @@ Page({
               goods: this.data.goods
             })
           } else if (res.cancel) {
-            this.data.goods[index].number=1
+            this.data.goods[index].number = 1
           }
         }
       })
-    }else{
+    } else {
       // 修改data中goods的数据
       this.setData({
         goods: this.data.goods
@@ -111,7 +111,7 @@ Page({
     // 计算总价格
     this.handleAllPrice();
 
-  }
+  },
 
   // 方法一：
   /* 点击+增加商品数量
@@ -135,4 +135,36 @@ Page({
         goods: this.data.goods
       })
     } */
+
+  // 商品数量输入框的失焦事件
+  handleBlur(e) {
+    // 获取商品的index
+    const { index } = e.currentTarget.dataset
+    // 获取该商品输入框的值
+    let { value } = e.detail
+
+    // 转换数量
+    value = Math.floor(Number(value))
+
+    // 如果数量小于1，就等于1
+    if (value < 1) {
+      value = 1;
+      // 提示用户
+      wx.showToast({
+        title: '商品数量不能小于1',
+        icon: 'none'
+      })
+    }
+
+    // 修改商品的数量
+    this.data.goods[index].number = value;
+
+    // 修改data中goods的数据
+    this.setData({
+      goods: this.data.goods
+    })
+
+    // 计算总价格
+    this.handleAllPrice();
+  }
 })
