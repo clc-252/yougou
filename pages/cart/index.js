@@ -10,7 +10,9 @@ Page({
     // 购物车商品数据
     goods: [],
     // 总价格
-    allPrice: 0
+    allPrice: 0,
+    // 是否全选
+    allSelect:true
   },
 
   /**
@@ -30,6 +32,9 @@ Page({
 
     // 计算总价格
     this.handleAllPrice();
+
+    // 判断是否全选
+    this.handleAllSelect()
   },
 
   handleGetAddress() {
@@ -186,6 +191,60 @@ Page({
     // 修改data中goods的数据
     this.setData({
       goods: this.data.goods
+    })
+
+    // 计算总价格
+    this.handleAllPrice();
+
+    // 判断是否全选
+    this.handleAllSelect()
+  },
+
+  // 判断是否全选
+  handleAllSelect(){
+    // 方法一：some
+    // const select = this.data.goods.some(v=>{
+    //   return !v.selected
+    // })
+
+    // 方法二：先假设是全选状态
+    let currentSelect=true;
+
+    // 遍历goods，只要有一个商品为false，则为false
+    this.data.goods.forEach(v=>{
+      // 如果有一个商品状态为fals，就停止
+      if(!currentSelect){
+        return
+      }
+
+      if(!v.selected){
+        currentSelect=false
+      }
+    })
+
+    // 修改data中goods的数据
+    this.setData({
+      allSelect:currentSelect
+    })
+
+    // 计算总价格
+    this.handleAllPrice();
+  },
+
+  // 点击底部全选按钮时触发
+  handleTabAllSelect(){
+    const {allSelect}=this.data
+
+    // 循环给每个商品修改状态
+    this.data.goods.forEach(v=>{
+      v.selected=!allSelect
+    })
+
+    this.setData({
+      // 重新修改data中goods的值
+      goods: this.data.goods,
+      // 修改全选状态
+      allSelect:!allSelect
     })
 
     // 计算总价格

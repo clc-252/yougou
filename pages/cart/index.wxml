@@ -58,7 +58,7 @@
   <!-- 全选和结算 -->
   <view class="checkout">
     <view class="checkall">
-      <icon type="success" color="#eb4450" size="18"></icon>全选
+      <icon type="success" size="18" color="{{allSelect?'#eb4450':'gray'}}" bindtap="handleTabAllSelect"></icon>全选
     </view>
     <view>
       <view class="sum">
