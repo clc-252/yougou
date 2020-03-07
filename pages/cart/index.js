@@ -59,7 +59,10 @@ Page({
     let price = 0;
     // 循环goods数组，拿到每个商品的价格
     this.data.goods.forEach(v => {
-      price += v.goods_price * v.number
+      // 判断当前商品的状态
+      if (v.selected) {
+        price += v.goods_price * v.number
+      }
     })
 
     // 修改总价格
@@ -136,6 +139,8 @@ Page({
       })
     } */
 
+
+
   // 商品数量输入框的失焦事件
   handleBlur(e) {
     // 获取商品的index
@@ -158,6 +163,25 @@ Page({
 
     // 修改商品的数量
     this.data.goods[index].number = value;
+
+    // 修改data中goods的数据
+    this.setData({
+      goods: this.data.goods
+    })
+
+    // 计算总价格
+    this.handleAllPrice();
+  },
+
+  // 点击icon触发
+  handleSelect(e) {
+    // 获取商品的index
+    const { index } = e.currentTarget.dataset
+
+    // 当前商品的状态
+    const { selected } = this.data.goods[index];
+
+    this.data.goods[index].selected = !selected
 
     // 修改data中goods的数据
     this.setData({

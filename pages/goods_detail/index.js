@@ -99,7 +99,8 @@ Page({
         goods_name: this.data.detail.goods_name,
         goods_price: this.data.detail.goods_price,
         goods_small_logo: this.data.detail.goods_small_logo,
-        number:1
+        number:1,
+        selected:true
       })
     }
     wx.setStorageSync('goods', goods)
