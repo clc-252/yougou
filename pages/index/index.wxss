@@ -75,7 +75,7 @@ swiper image{
   color: #333;
   position: fixed;
   right: 20rpx;
-  bottom: 40rpx;
+  bottom: 48px;
 }
 .totop_icon{
   width: 10px;

@@ -1,4 +1,4 @@
-<view class="container">
+<view class="container tabbar-page">
   <!-- 引入搜索栏组件 -->
   <Search/>
   <!-- 分类内容 -->

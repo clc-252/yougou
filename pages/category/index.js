@@ -29,6 +29,16 @@ Page({
       })
     })
   },
+
+  onShow() {
+    if (typeof this.getTabBar === 'function' &&
+      this.getTabBar()) {
+      this.getTabBar().setData({
+        selected: 1
+      })
+    }
+  },
+
   // 切换左边分类菜单栏时触发
   handleClick(e){
     // 获取index

@@ -1,2 +1,6 @@
 @import 'common/style.wxss';
-@import 'common/font.wxss'
+@import 'common/font.wxss';
+
+.tabbar-page{
+  padding-bottom: 50px;
+}

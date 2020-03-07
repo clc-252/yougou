@@ -48,8 +48,8 @@
 .menu_content {
   flex: 1;
   padding-top: 20rpx;
+  padding-bottom: 50px;
   overflow: auto;
-  /* text-align: center; */
   color: #333;
 }
 
