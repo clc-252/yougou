@@ -1,5 +1,5 @@
 
 <view class="container">
   <!-- 授权按钮：一定要使用button，只有button才能发起授权 -->
-  <button class="authorize" type="primary">授权</button>
+  <button bindgetuserinfo="handleAuthorize" open-type="getUserInfo" type="primary">授权</button>
 </view>

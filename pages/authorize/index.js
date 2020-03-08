@@ -1,3 +1,6 @@
+// 导入自己封装的request
+import request from '../../utils/request.js'
+
 // pages/authorize/index.js
 Page({
 
@@ -15,52 +18,34 @@ Page({
 
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
+  // 处理授权
+  handleAuthorize(e){
+    // 获取需要的数据
+    const { encryptedData, iv, rawData, signature}=e.detail
 
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+    // 通过wx.login获取code
+    wx.login({
+      success(res) {
+        if (res.code) {
+          const data={
+            encryptedData,
+            iv,
+            rawData,
+            signature,
+            code:res.code
+          }
+          //发起网络请求
+          request({
+            url: '/users/wxlogin',
+            data,
+            method:'POST'
+          }).then(res=>{
+            console.log(res)
+          })
+        } else {
+          console.log('登录失败！' + res.errMsg)
+        }
+      }
+    })
   }
 })
