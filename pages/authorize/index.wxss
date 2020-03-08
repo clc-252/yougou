@@ -1,0 +1,6 @@
+/* pages/authorize/index.wxss */
+.container{
+  display: flex;
+  align-items: center;
+  height: 100vh;
+}

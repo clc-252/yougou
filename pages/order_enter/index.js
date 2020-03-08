@@ -275,5 +275,17 @@ Page({
     this.setData({
       goodsNumList: arr
     })
+  },
+
+  // 点击立即支付按钮时触发
+  handlePay(){
+    // 判断有没有token
+    const { token } = wx.getStorageSync('token')
+    // 没有的话就跳转到授权页面：authorize
+    if(!token){
+      wx.navigateTo({
+        url: '/pages/authorize/index',
+      })
+    }
   }
 })
