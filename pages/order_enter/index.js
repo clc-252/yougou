@@ -302,28 +302,51 @@ Page({
         }
       })
 
-      // 创建订单
-      request({
-        url: '/my/orders/create',
-        method: 'POST',
-        header: {
-          Authorization: token
-        },
-        data: {
-          order_price: allPrice,
-          consignee_addr: address.name + address.tel + address.detail,
-          goods
-        }
-      }).then(res => {
-        // console.log(res)
-        // 创建成功 就给出提示
+      // Object.keys()方法：该方法会返回一个由给定对象的自身可枚举属性组成的数组，数组中属性名的排列顺序和使用 for...in.. 循环遍历该对象时返回的顺序一致 。即可以通过返回数组的长度来判断是否为空对象，若为空对象，该数组长度为0。
+      if (Object.keys(address).length == 0) {
         wx.showToast({
-          title: '订单创建成功',
-          type: 'success'
+          title: '请选择收货地址',
+          icon: 'none'
         })
+      } else {
+        // 创建订单
+        request({
+          url: '/my/orders/create',
+          method: 'POST',
+          header: {
+            Authorization: token
+          },
+          data: {
+            order_price: allPrice,
+            consignee_addr: address.name + address.tel + address.detail,
+            goods
+          }
+        }).then(res => {
+          // console.log(res)
+          // 创建成功 就给出提示
+          wx.showToast({
+            title: '订单创建成功',
+            type: 'success'
+          })
 
-        // 发起支付
-      })
+          // 发起支付
+          request({
+            url: '/my/orders/req_unifiedorder',
+            method: 'POST',
+            header: {
+              Authorization: token
+            },
+            data: {
+              order_number: res.data.message.order_number
+            }
+          }).then(res => {
+            // 将支付接口所需的数据解构出来
+            const { pay } = res.data.message;
+            // 发起支付
+            wx.requestPayment(pay)
+          })
+        })
+      }
     }
   }
 })
