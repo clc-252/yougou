@@ -1,3 +1,6 @@
+// 导入自己封装的request
+import request from '../../utils/request.js'
+
 // pages/cart/index.js
 Page({
 
@@ -278,13 +281,48 @@ Page({
   },
 
   // 点击立即支付按钮时触发
-  handlePay(){
+  handlePay() {
     // 判断有没有token
-    const { token } = wx.getStorageSync('token')
+    const token = wx.getStorageSync('token')
     // 没有的话就跳转到授权页面：authorize
-    if(!token){
+    if (!token) {
       wx.navigateTo({
         url: '/pages/authorize/index',
+      })
+    } else {
+      // 如果有token
+      let { allPrice, address, goods } = this.data
+
+      // 返回一个接口所需要的商品数组
+      goods = goods.map(v => {
+        return {
+          goods_id: v.goods_id,
+          goods_number: v.number,
+          goods_price: v.goods_price
+        }
+      })
+
+      // 创建订单
+      request({
+        url: '/my/orders/create',
+        method: 'POST',
+        header: {
+          Authorization: token
+        },
+        data: {
+          order_price: allPrice,
+          consignee_addr: address.name + address.tel + address.detail,
+          goods
+        }
+      }).then(res => {
+        // console.log(res)
+        // 创建成功 就给出提示
+        wx.showToast({
+          title: '订单创建成功',
+          type: 'success'
+        })
+
+        // 发起支付
       })
     }
   }
