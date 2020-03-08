@@ -40,7 +40,14 @@ Page({
             data,
             method:'POST'
           }).then(res=>{
-            console.log(res)
+            // 获取token
+            const {token}=res.data.message
+
+            // 把token存到本地
+            wx.setStorageSync('token', token)
+
+            // 返回上一个页面
+            wx.navigateBack();
           })
         } else {
           console.log('登录失败！' + res.errMsg)
