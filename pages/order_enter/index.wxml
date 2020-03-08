@@ -1,5 +1,4 @@
-<view class="container tabbar-page">
-  <!-- 收货地址 -->
+<view class="container">
   <view class="address" wx:if="{{address.userName}}">
     <!-- 收货人 -->
     <view class="user_address">
@@ -28,10 +27,10 @@
     <icon class="iconfont icon-dianpu"></icon>
     <text>优购生活馆</text>
   </view>
+
   <!-- 商品列表 -->
   <view class="goods-list">
-    <view class="goods-item" wx:for="{{goods}}" wx:key="index">
-      <icon type="success" color="{{item.selected?'#eb4450':'gray'}}" size="18" bindtap="handleSelect" data-index="{{index}}"></icon>
+    <view class="goods-item" wx:for="{{goods}}" wx:key="index"  wx:if="{{item.selected}}">
       <navigator url="/pages/goods_detail/index?id={{item.goods_id}}">
         <image mode="aspectFill" src="{{item.goods_small_logo}}"></image>
       </navigator>
@@ -45,28 +44,21 @@
             <text>￥</text>{{item.goods_price}}
           </view>
           <!-- 商品数量 -->
-          <view class="goods-num">
-            <view class="reduce-btn" bindtap="handleGoodsNum" data-index="{{index}}" data-number="{{-1}}">-</view>
-            <input value="{{item.number}}" bindblur="handleBlur" data-index="{{index}}"></input>
-            <view class="add-btn" bindtap="handleGoodsNum" data-index="{{index}}" data-number="{{1}}">+</view>
-          </view>
+          <view class="goods-num">x {{item.number}}</view>
         </view>
       </view>
     </view>
   </view>
 
-  <!-- 全选和结算 -->
-  <view class="checkout">
-    <view class="checkall">
-      <icon type="success" size="18" color="{{allSelect?'#eb4450':'gray'}}" bindtap="handleTabAllSelect"></icon>全选
-    </view>
-    <view>
-      <view class="sum">
-        合计：
-        <text class="sum-price"><text>￥</text>{{allPrice}}</text>
+  <!-- 底部结算 -->
+  <view class="footer">
+    <view class="commit">
+      <view class="goodsNum">共{{goodsNumList.length}}件,</view>
+      <view class="sum">合计：
+        <text>￥<text>{{allPrice}}</text></text>
       </view>
-      <view class="freight">包含运费</view>
     </view>
-    <navigator url="/pages/order_enter/index" class="buy-btn">结算({{goodsNumList.length}})</navigator>
+    <!-- 提交订单按钮 -->
+    <button class="commit-btn" type="primary">立即支付</button>
   </view>
 </view>

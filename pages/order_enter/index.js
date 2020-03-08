@@ -14,13 +14,13 @@ Page({
     // 是否全选
     allSelect: true,
     // 存储商品件数
-    goodsNumList:[]
+    goodsNumList: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
+  onLoad: function (options) {
     // 将收货地址的数据从本地取出来
     this.setData({
       address: wx.getStorageSync('address') || {}
@@ -90,7 +90,7 @@ Page({
     wx.setStorageSync('goods', this.data.goods)
 
     // 商品件数
-    this.handleNumber()
+    this.handleNumber();
   },
 
 
@@ -147,30 +147,6 @@ Page({
     this.handleAllPrice();
 
   },
-
-  // 方法一：
-  /* 点击+增加商品数量
-    handleAdd(e) {
-      const { index, number } = e.currentTarget.dataset
-      // 点击当前商品，数量+1
-      this.data.goods[index].number += number;
-      // 修改data中goods的数据
-      this.setData({
-        goods: this.data.goods
-      })
-    },
-
-    减少商品数量
-    handleReduce(e){
-      const { index, number } = e.currentTarget.dataset
-      // 点击当前商品，数量-1
-      this.data.goods[index].number -= number;
-      // 修改data中goods的数据
-      this.setData({
-        goods: this.data.goods
-      })
-    } */
-
 
 
   // 商品数量输入框的失焦事件
@@ -233,7 +209,6 @@ Page({
 
     // 判断是否全选
     this.handleAllSelect()
-
   },
 
   // 判断是否全选
@@ -290,10 +265,10 @@ Page({
   },
 
   // 商品件数
-  handleNumber(){
-    let arr=[]
-    this.data.goods.forEach((v,i)=>{
-      if(v.selected){
+  handleNumber() {
+    let arr = []
+    this.data.goods.forEach((v, i) => {
+      if (v.selected) {
         arr.push(v.selected)
       }
     })

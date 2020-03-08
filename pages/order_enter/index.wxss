@@ -1,0 +1,109 @@
+/* pages/order_enter/index.wxss */
+.address{
+  font-size: 14px;
+}
+.user_address{
+  display: flex;
+  justify-content: space-between;
+  padding: 20rpx;
+}
+.user_tel text{
+  margin-left: 20rpx;
+  font-family: consolas;
+  color: #999;
+}
+.address_info{
+  padding: 20rpx;
+}
+.address image{
+  height: 15rpx;
+  border-bottom: 20rpx solid #f4f4f4;
+}
+
+/* 店铺名 */
+.shop-name{
+  padding: 0 20rpx 20rpx;
+  border-bottom: 1px solid #ddd;
+}
+.shop-name icon {
+  margin-right: 5px;
+  color: #999;
+}
+
+/* 商品列表 */
+.goods-list{
+  padding-bottom: 200rpx;
+}
+.goods-item{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx;
+  border-bottom: 1px solid #ddd;
+  font-size: 14px;
+}
+.goods-list image{
+  width: 160rpx;
+  height: 160rpx;
+  margin: 0 20rpx;
+}
+.goods-item-info{
+  flex: 1;
+  height: 160rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.goods-title{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient: vertical;
+}
+.goods-other{
+  display: flex;
+  justify-content: space-between;
+}
+.goods-price{
+  font-size: 16px;
+  color: #eb4450;
+}
+.goods-price text {
+  font-size: 12px;
+}
+
+/* 底部提交部分 */
+.footer{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #fff;
+}
+.commit{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.goodsNum{
+  margin-right: 10px;
+  font-size: 14px;
+  color: #666;
+}
+.sum{
+  font-size: 14px;
+  margin-right: 10px;
+}
+.sum text{
+  color: #eb4450;
+}
+.sum text text{
+  font-size: 16px;
+  font-weight: 600;
+}
+/* 提交订单按钮 */
+.commit-btn{
+  margin-right: 10rpx!important;
+  margin-top: 10px;
+  font-weight: normal;
+}
