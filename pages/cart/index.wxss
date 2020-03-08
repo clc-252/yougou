@@ -127,3 +127,21 @@
   text-align: center;
   line-height: 100rpx;
 }
+
+/* 购物车里没有东西的时候的样式 */
+.cart-none{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  background-color: #f4f4f4;
+  padding-top: 100rpx;
+}
+.cart-none image{
+  width: 200rpx;
+  height: 200rpx;
+  margin-bottom: 50rpx;
+}
+.cart-none view {
+  color: #333;
+}
