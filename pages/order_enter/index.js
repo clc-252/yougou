@@ -345,6 +345,15 @@ Page({
             // 发起支付
             wx.requestPayment(pay)
           })
+
+          // 订单创建成功之后吧购物车中selected为true的商品删除
+          // filter会返回一个新数组
+          const filterGoods=this.data.goods.filter(v=>{
+            return !v.selected
+          })
+
+          // 修改本地数据
+          wx.setStorageSync('goods', filterGoods)
         })
       }
     }

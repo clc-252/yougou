@@ -36,6 +36,11 @@ const request =(config={})=>{
   // resolve：一般是请求成功后执行，相当于.then
   // reject：一般是请求失败后执行，相当于.catch
   return new Promise((resolve,reject)=>{
+    // 只要进入到请求就显示加载中的提示框
+    wx.showLoading({
+      title: '加载中',
+      mask:true
+    })
     // 发起请求
     wx.request({
       ...config,
@@ -46,7 +51,10 @@ const request =(config={})=>{
         reject(res)
       },
       complete(res){
+        // 执行错误的拦截器
         request.error(res)
+        // 请求结束后隐藏提示框
+        wx.hideLoading()
       }
     })
   })
