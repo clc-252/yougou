@@ -1,1 +1,116 @@
 /* pages/personal/index.wxss */
+page{
+  background-color: #f4f4f4;
+}
+/* 用户信息 */
+.user-info{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 420rpx;
+  background-color: #eb4450;
+}
+.user-info icon{
+  color: #fff;
+  font-size: 20px;
+  margin-top: -25px;
+}
+.user{
+  margin: 0 50rpx;
+  text-align: center;
+}
+.user .userImg {
+  width: 150rpx;
+  height: 150rpx;
+  margin-bottom: 20rpx;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.user .userName{
+  color: #fff;
+}
+
+/* 收藏和关注 */
+.follow{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 718rpx;
+  height: 120rpx;
+  margin: 0 auto;
+  background-color: #fff;
+  font-size: 14px;
+  position: relative;
+  top: -30rpx;
+}
+.follow-item{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #666;
+}
+
+/* 我的订单 */
+.order{
+  width: 718rpx;
+  margin: 0 auto;
+  background-color: #fff;
+}
+.order-title{
+  height: 88rpx;
+  border-bottom: 1px solid #ddd;
+  line-height: 88rpx;
+  padding: 0 20rpx;
+}
+.list{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.list .item{
+  padding: 20rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 14px;
+}
+.list .item icon{
+  font-size: 26px;
+  color: #eb4450;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+/* 收货地址管理 */
+.address{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 718rpx;
+  height: 87rpx;
+  padding: 0 20rpx;
+  margin: 20rpx auto;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+.to{
+  font-family: consolas;
+  color: #ccc;
+}
+
+.service{
+  width: 718rpx;
+  margin: 0 auto;
+  background-color: #fff;
+}
+.navbar-item{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 85rpx;
+  padding-right: 20rpx;
+  margin-left: 20rpx;
+  border-bottom: 1px solid #ddd;  
+}

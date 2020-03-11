@@ -1,2 +1,61 @@
-<!--pages/personal/index.wxml-->
-<text>pages/personal/index.wxml</text>
+<view class="container">
+  <!-- 用户头像和用户名部分 -->
+  <view class="user-info">
+    <icon class="iconfont icon-icon_set_up"></icon>
+    <view class="user">
+      <view class="userImg">
+        <open-data type="userAvatarUrl"></open-data>
+      </view>
+      <view class="userName">
+        <open-data type="userNickName"></open-data>
+      </view>
+    </view>
+    <icon class="iconfont icon-dakaihuihua"></icon>
+  </view>
+  <!-- 收藏和关注 -->
+  <view class="follow">
+    <view class="follow-item" wx:for="{{['收藏的店铺','收藏的商品','关注的商品','我的足迹']}}">
+      <text class="num">0</text>
+      <text class="title">{{item}}</text>
+    </view>
+  </view>
+
+  <!-- 我的订单 -->
+  <view class="order">
+    <view class="order-title">我的订单</view>
+    <view class="list">
+      <view class="item">
+        <icon class="iconfont icon-daifukuan"></icon>
+        <text>待付款</text>
+      </view>
+      <view class="item">
+        <icon class="iconfont icon-icon3"></icon>
+        <text>待收货</text>
+      </view>
+      <view class="item">
+        <icon class="iconfont icon-icon5"></icon>
+        <text>退款/退货</text>
+      </view>
+      <view class="item">
+        <icon class="iconfont icon-icon_order"></icon>
+        <text>全部订单</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 收货地址管理 -->
+  <view class="address">
+    <text class="address_title">收货地址管理</text>
+    <text class="to">></text>
+  </view>
+  <view class="service">
+    <view class="navbar-item">
+      <text class="text">联系客服</text>
+      <text class="to">400-618-4000</text>
+    </view>
+    <view class="navbar-item">
+      <text class="text">意见反馈</text>
+      <text class="to">></text>
+    </view>
+  </view>
+</view>
