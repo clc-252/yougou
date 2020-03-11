@@ -22,5 +22,16 @@ Page({
         selected: 3
       })
     }
+  },
+  // 收货地址
+  handleAddress(){
+    wx.chooseAddress()
+  },
+
+  // 联系客服
+  handleContact(){
+    wx.makePhoneCall({
+      phoneNumber: '400-618-4000'  // 假的
+    })
   }
 })

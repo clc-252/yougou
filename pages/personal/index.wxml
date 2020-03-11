@@ -44,12 +44,12 @@
   </view>
 
   <!-- 收货地址管理 -->
-  <view class="address">
+  <view class="address" bindtap="handleAddress">
     <text class="address_title">收货地址管理</text>
     <text class="to">></text>
   </view>
   <view class="service">
-    <view class="navbar-item">
+    <view class="navbar-item" bindtap="handleContact">
       <text class="text">联系客服</text>
       <text class="to">400-618-4000</text>
     </view>
